@@ -10,13 +10,11 @@ services:
       MYSQL_ROOT_PASSWORD: root
       TZ: 'Asia/Seoul'
     ports:
-      - "3306:3306"
+      - "3307:3306"
     command:
       - "mysqld"
       - "--character-set-server=utf8mb4"
       - "--collation-server=utf8mb4_unicode_ci"
-    networks:
-      - test_network
 
   application:
     container_name: docker-compose-test
@@ -31,8 +29,3 @@ services:
       SPRING_DATASOURCE_PASSWORD: "root"
     depends_on:
       - database
-    networks:
-      - test_network
-
-networks:
-  test_network:
